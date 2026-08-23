@@ -1,0 +1,46 @@
+
+
+services:
+
+  mysql:
+    image: mysql:8
+    container_name: ecommerce-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ecommerce_store
+    ports:
+    - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    command:  
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+  app:
+    build: 
+      context: .
+    container_name: ecommerce-app
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_MAIL_USERNAME: ${MAIL_USERNAME}
+      SPRING_MAIL_PASSWORD: ${MAIL_PASSWORD}
+      MYSQL_ROOT_HOST: "%"
+      SPRING_PROFILES_ACTIVE: docker
+      TZ: "Asia/Jakarta"
+    volumes:
+      - ./uploads:/app/uploads
+
+volumes:
+    mysql_data:
