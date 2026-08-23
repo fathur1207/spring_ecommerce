@@ -33,11 +33,11 @@
 # Instalasi
    **1. Clone repository:**
 ```bash
-git clone https://github.com/fathur1207/spring-ecommerce.git
+git clone https://github.com/fathur1207/ecommerce_store.git
 ```
    **2. Masuk ke root project directory:**
 ```bash
-cd spring-ecommerce
+cd ecommerce_store
 ```
   **3. Set up MySQL database:**
 ```bash
