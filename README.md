@@ -1,19 +1,19 @@
-**Spring Ecommerce** adalah aplikasi project online shopping sederhana dibuat dengan **Java Spring Boot MVC** dan **Thymeleaf**. Ini adalah aplikasi web dengan dengan frontend  **HTML, CSS, JavaScript,** dan **jQuery**, termasuk  **jQuery DataTables** untuk  enhanced data management.
+**Spring Ecommerce** Fullstact project marketplace sederhana dibuat dengan **Java Spring Boot MVC** dan **Thymeleaf**.
 
-# Fitur
-  - **Arsitektur Spring Boot MVC:** Projek ini mengikuti standar arsitektur Model View Control  (MVC) dengan Service, Repository, dan Controller layers untuk memastikan clean code, mudah dimaintenance, dan scalabilitas.
+# Tech Stack
+  - **Arsitektur Spring Boot MVC:** Standar arsitektur Model View Control  (MVC) dengan Service, Repository, dan Controller layers untuk memastikan clean code, reliable, dan scalable.
   - **Frontend:**
-      -  **Thymeleaf:** Sebagai View best-practice dari Server-side Java untuk rendering dynamic HTML pages.
+      -  **Thymeleaf:** Sebagai View Controller untuk rendering dynamic HTML pages.
       - **HTML5/CSS3:** Desain Responsive untuk web browser dan mobile devices.
-      - **JavaScript & jQuery:** Untuk user interaktif dengan dynamic elements.
-      - **jQuery DataTables:** Untuk handling data yang efisien dan menampilkan dengan pagination, sorting, dan search fungsional.
+      - **JavaScript & jQuery:** User interaktif dengan dynamic elements.
+      - **jQuery DataTables:** Handling data yang efisien dan menampilkan dengan pagination, sorting, dan search fungsional.
   
  - **Backend:**
       - **Java Spring Boot (3.3.2):** Core framework backend, handling business logic dan interaksi database.
       - **Spring Data JPA:** Simplified data access dan query database dengan JPA finder method (query hanya dengan nama method).
       - **MySQL:** Relational database untuk data persistence.
       - **Spring Security:** Secure the application dengan user authentication dan role-based authorization.
-      - **Lombok:** Simplifies code dengan annotations untuk eliminate boilerplate code (seperti **getters**, **setters**, **constructors**).
+      - **Lombok:** Simplifies code dengan annotations untuk eliminate boilerplate code (seperti **getters**, **setters**, **constructors injector**).
       - **Maven:** Build tool untuk project dan dependency management.
       - **Java Mail Sender:** Send Email untuk Password Reset.
   
@@ -33,21 +33,21 @@
 # Instalasi
    **1. Clone repository:**
 ```bash
-git clone https://github.com/fathur1207/ecommerce_store.git
+git clone https://github.com/fathur1207/spring-ecommerce.git
 ```
    **2. Masuk ke root project directory:**
 ```bash
-cd ecommerce_store
+cd spring-ecommerce
 ```
   **3. Set up MySQL database:**
 ```bash
-CREATE DATABASE ecommerce_store;
+CREATE DATABASE spring-ecommerce;
 ```
-  **4. Untuk konfigurasi koneksi database di application.properties / application-docker.properties.:**
+  **4. Untuk konfigurasi koneksi database di application.properties.:**
 ```bash
-spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce_store
+spring.datasource.url=jdbc:mysql://localhost:3306/spring-ecommerce
 spring.datasource.username=root
-spring.datasource.password=root
+spring.datasource.password=[your_password]
 
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
@@ -74,7 +74,7 @@ logging.level.org.springframework.web.servlet.DispatcherServlet=DEBUG
 - **Akses di http://localhost:8080.**
 
 # Project Screenshots: 
-_**Note : Project belom selesai dan masih under development. The project akan terus diupdated insyaAllah._
+_**Note : Project belom selesai dan masih under development. Project akan terus diupdated insyaAllah._
 
 **Index Page:**
 
