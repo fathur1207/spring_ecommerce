@@ -102,7 +102,7 @@
 				<div class="col-md-2" th:each="category: ${latestSixActiveCategory}">
 					<div class="card rounded-circle shadow-sm p-3 mb-5 bg-white rounded">
 						<div class="card-body text-center">
-							<img alt="" th:src="@{'/img/category/'+${category.categoryImage}}" width="100%"
+							<img alt="" th:src="@{'/uploads/category/'+${category.categoryImage}}" width="100%"
 								height="130px">
 							<p><b href="#" th:each="category : ${allActiveCategory}"
 									th:href="@{'/products?category='+${category.categoryName}}"
@@ -238,7 +238,7 @@
 				<div class="col-md-3" th:each="product: ${latestEightActiveProducts}">
 					<div class="card shadow-sm p-3 mb-5 bg-white rounded">
 						<div class="card-body text-center">
-							<img alt="" th:src="@{'/img/product_image/'+${product.productImage}}" width="60%"
+							<img alt="" th:src="@{'/uploads/product_image/'+${product.productImage}}" width="60%"
 								height="140px">
 							<p class="text-center"><b>[[${product.productTitle}]]</b></p>
 							<div class="row text-center">

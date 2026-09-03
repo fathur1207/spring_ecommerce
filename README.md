@@ -41,11 +41,11 @@ cd spring-ecommerce
 ```
   **3. Set up MySQL database:**
 ```bash
-CREATE DATABASE spring-ecommerce;
+CREATE DATABASE spring_ecommerce;
 ```
   **4. Untuk konfigurasi koneksi database di application.properties.:**
 ```bash
-spring.datasource.url=jdbc:mysql://localhost:3306/spring-ecommerce
+spring.datasource.url=jdbc:mysql://localhost:3306/spring_ecommerce
 spring.datasource.username=root
 spring.datasource.password=[your_password]
 
