@@ -15,7 +15,7 @@ public class GlobalExceptionHandler {
 
         session.setAttribute("errorMsg", "Ukuran file maksimal 2 MB!");
 
-        return "admin/admin-dashboard";
+        return "redirect:/admin/admin-dashboard";
     }
 
     @ExceptionHandler(EmailAlreadyRegisteredException.class)

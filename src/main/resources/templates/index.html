@@ -243,11 +243,20 @@
 							<p class="text-center"><b>[[${product.productTitle}]]</b></p>
 							<div class="row text-center">
 								<p class="fs-6 fw-bold">
-									<span>&#2547; [[${product.discountPrice}]]</span><br>
-									<span class="text-decoration-line-through text-secondary">
-										&#2547; [[${product.productPrice}]]</span>
-									<span class="fs-6 text-success">[[${product.discount}]] %
-										Off</span>
+									<!-- If discount exist -->
+									<th:block th:if="${product.discount > 0}">
+										<span>&#2547; [[${product.discountPrice}]]</span><br>
+										<span class="text-decoration-line-through text-secondary">
+											&#2547; [[${product.productPrice}]]
+										</span>
+										<span class="fs-6 text-success">
+											[[${product.discount}]] % Off
+										</span>
+									</th:block>
+									<!-- If no discount (opposite of the condition above) -->
+									<th:block th:unless="${product.discount > 0}">
+										<span>&#2547; [[${product.productPrice}]]</span>
+									</th:block>
 								</p>
 								<a th:href="@{'/product/'+${product.id}}"
 									class="btn btn-danger col-md-6 offset-md-3 ">Details</a>

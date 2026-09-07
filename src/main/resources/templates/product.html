@@ -1,28 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{base::layout(~{::section})}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+
 <head>
-<meta charset="UTF-8">
-<title>Product</title>
+	<meta charset="UTF-8">
+	<title>Product</title>
 
-<style>
+	<style>
+		.list-group-item.active {
+			z-index: 2;
 
-.list-group-item.active {
-    z-index: 2;
-    
-    background-color: #DC3545;
-    border-color: #DC3545;
-}
+			background-color: #DC3545;
+			border-color: #DC3545;
+		}
 
-element.style {
-    z-index: 2;
-    /* color: #DC3545; */
-    background-color: #DC3545;
-    border-color: #DC3545;
-}
-
-</style>
+		element.style {
+			z-index: 2;
+			/* color: #DC3545; */
+			background-color: #DC3545;
+			border-color: #DC3545;
+		}
+	</style>
 </head>
+
 <body>
 	<section>f
 		<div class="container-fluid bg-danger p-5">
@@ -31,13 +30,14 @@ element.style {
 					<form action="">
 						<div class="input-group">
 							<input class="form-control" type="text" name="search">
-							<button class="btn btn-light text-dark ms-3 col-md-2" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search Product</button>
+							<button class="btn btn-light text-dark ms-3 col-md-2" type="submit"><i
+									class="fa-solid fa-magnifying-glass"></i> Search Product</button>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- category side bar start -->
 		<div class="container-fluid">
 			<div class="row">
@@ -47,18 +47,18 @@ element.style {
 							<div class="list-group">
 								<p class="fs-5">Category</p>
 								<a href="/products" class="list-group-item list-group-item-action"
-									th:classappend="${paramValue == ''} ? 'active' : ''"
-									aria-current="true"> All </a> 
-								
-								<a href="#" th:each="category : ${allActiveCategory}" th:href="@{'/products?category='+${category.categoryName}}"
-								    th:classappend="${paramValue == category.categoryName} ? 'active' : '' "
+									th:classappend="${paramValue == ''} ? 'active' : ''" aria-current="true"> All </a>
+
+								<a href="#" th:each="category : ${allActiveCategory}"
+									th:href="@{'/products?category='+${category.categoryName}}"
+									th:classappend="${paramValue == category.categoryName} ? 'active' : '' "
 									class="list-group-item list-group-item-action">[[${category.categoryName}]]</a>
-								
+
 							</div>
 
 						</div>
 					</div>
-					
+
 				</div>
 
 				<div class="col-md-10">
@@ -66,37 +66,47 @@ element.style {
 						<div class="card-body">
 							<p class="fs-3 text-center">Products</p>
 							<div class="row">
-							
-							
-							<th:block th:if="${allActiveProducts.size > 0}">
-								<div class="col-md-3" th:each="product : ${allActiveProducts}">
-									<div class="card">
-										<div class="card-body">
-											<img alt="product_image"
-												th:src="@{'img/product_image/'+${product.productImage}}"
-												width="100%" height="150px">
-											<p class="fs-5 text-center">[[${product.productTitle}]]</p>
 
-											<div class="row text-center">
-												<p class="fs-6 fw-bold">
-													<span>&#2547; [[${product.discountPrice}]]</span><br>
-													<span class="text-decoration-line-through text-secondary">
-														&#2547; [[${product.productPrice}]]</span> 
-													<span class="fs-6 text-success">[[${product.discount}]] %
-														Off</span>
-												</p>
-												<a th:href="@{'/product/'+${product.id}}"
-													class="btn btn-danger col-md-6 offset-md-3 ">Details</a>
+
+								<th:block th:if="${allActiveProducts.size > 0}">
+									<div class="col-md-3" th:each="product : ${allActiveProducts}">
+										<div class="card">
+											<div class="card-body">
+												<img alt="product_image"
+													th:src="@{'/uploads/product_image/'+${product.productImage}}"
+													width="100%" height="150px">
+												<p class="fs-5 text-center">[[${product.productTitle}]]</p>
+
+												<div class="row text-center">
+													<p class="fs-6 fw-bold">
+														<!-- If discount exist -->
+														<th:block th:if="${product.discount > 0}">
+															<span>&#2547; [[${product.discountPrice}]]</span><br>
+															<span class="text-decoration-line-through text-secondary">
+																&#2547; [[${product.productPrice}]]
+															</span>
+															<span class="fs-6 text-success">
+																[[${product.discount}]] % Off
+															</span>
+														</th:block>
+														<!-- If no discount (opposite of the condition above) -->
+														<th:block th:unless="${product.discount > 0}">
+															<span>&#2547; [[${product.productPrice}]]</span>
+														</th:block>
+													</p>
+													<a th:href="@{'/product/'+${product.id}}"
+														class="btn btn-danger col-md-6 offset-md-3 ">Details</a>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-							</th:block>
-							<th:block th:unless="${allActiveProducts.size > 0}">
-								<p class="fs-3 text-danger mt-3 text-center">No Products Found for this category!</p>
-							</th:block>
-							
-								
+								</th:block>
+								<th:block th:unless="${allActiveProducts.size > 0}">
+									<p class="fs-3 text-danger mt-3 text-center">No Products Found for this category!
+									</p>
+								</th:block>
+
+
 
 
 
@@ -108,10 +118,11 @@ element.style {
 		</div>
 		<!-- category side bar end -->
 		<script>
-		element.style.zIndex = 2;
-		element.style.backgroundColor = "#DC3545";
-		element.style.borderColor = "#DC3545";
+			element.style.zIndex = 2;
+			element.style.backgroundColor = "#DC3545";
+			element.style.borderColor = "#DC3545";
 		</script>
 	</section>
 </body>
+
 </html>
