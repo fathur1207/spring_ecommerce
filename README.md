@@ -46,26 +46,17 @@ CREATE DATABASE spring_ecommerce;
   **4. Untuk konfigurasi koneksi database di application.properties.:**
 ```bash
 spring.datasource.url=jdbc:mysql://localhost:3306/spring_ecommerce
-spring.datasource.username=root
-spring.datasource.password=[your_password]
-
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.format_sql=true
-
+spring.datasource.username=
+spring.datasource.password=
 spring.mail.host=smtp.gmail.com
 spring.mail.port=587
 spring.mail.username=${SPRING_MAIL_USERNAME}
 spring.mail.password=${SPRING_MAIL_PASSWORD}
 spring.mail.properties.mail.smtp.auth=true
 spring.mail.properties.mail.smtp.starttls.enable=true
-
 spring.servlet.multipart.max-file-size=2MB
 spring.servlet.multipart.max-request-size=2MB
-logging.level.org.hibernate.SQL=DEBUG
-logging.level.org.hibernate.orm.jdbc.bind=TRACE
-logging.level.org.springframework.web=DEBUG
-logging.level.org.springframework.web.servlet.DispatcherServlet=DEBUG
+
 
 ```
 **5. Run application:** 
